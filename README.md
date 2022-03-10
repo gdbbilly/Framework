@@ -1,7 +1,7 @@
 # Framework
 Technical Challenge - .NET
 
-1. Um cliente precisa de um sistema que seja capaz de decompor um número em todos os seus divisores, enumerando também aqueles que forem primos.
+O cliente precisa de um sistema que seja capaz de decompor um número em todos os seus divisores, enumerando também aqueles que forem primos.
 
 ● Dado um número de entrada, o programa deve calcular todos os divisores que compõem o número.
 ● Dado um número de entrada, o programa deve calcular todos os divisores primos que compõem o número.
