@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/Framework/bin/Debug/netcoreapp3.1
+/src/Framework/obj
+/src/Framework.UnitTests/bin/Debug/netcoreapp3.1
+/src/Framework.UnitTests/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+/src/Framework.UnitTests/obj
+/src/Framework.Api/bin/Debug/netcoreapp3.1
+/src/Framework.Api/obj
+*.user
