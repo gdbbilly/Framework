@@ -7,10 +7,12 @@ namespace Framework.UnitTests
 {
     public class NumberServiceTest
     {
+        /// <summary>
+        /// Testa os divisores do número 10.
+        /// </summary>
         [Fact]
         public void NumberServiceDividersSuccess()
         {
-            //Arrange
             NumberService numberService = new NumberService();
 
             var result = numberService.Calculate(10);
@@ -21,10 +23,12 @@ namespace Framework.UnitTests
             Assert.Equal(dividers, result.Result.Dividers);
         }
 
+        /// <summary>
+        /// Testa os divisores primos do número 10.
+        /// </summary>
         [Fact]
         public void NumberServicePrimesSuccess()
         {
-            //Arrange
             NumberService numberService = new NumberService();
 
             var result = numberService.Calculate(10);
@@ -35,10 +39,13 @@ namespace Framework.UnitTests
             Assert.Equal(primes, result.Result.Primes);
         }
 
+        /// <summary>
+        /// Testa os divisores do número 45.
+        /// Testa os divisores primos do número 45.
+        /// </summary>
         [Fact]
         public void NumberServiceSuccess()
         {
-            //Arrange
             NumberService numberService = new NumberService();
 
             var result = numberService.Calculate(45);
@@ -51,10 +58,12 @@ namespace Framework.UnitTests
             Assert.Equal(primes, result.Result.Primes);
         }
 
+        /// <summary>
+        /// Testa caso o número seja 0
+        /// </summary>
         [Fact]
         public void NumberServiceDividersError()
         {
-            //Arrange
             NumberService numberService = new NumberService();
 
             var result = numberService.Calculate(0);
@@ -63,10 +72,12 @@ namespace Framework.UnitTests
             Assert.Empty(result.Result.Dividers);
         }
 
+        /// <summary>
+        /// Testa caso o número seja negativo
+        /// </summary>
         [Fact]
         public void NumberServiceError()
         {
-            //Arrange
             NumberService numberService = new NumberService();
 
             var result = numberService.Calculate(-10);
