@@ -11,3 +11,4 @@
 /src/Framework.Api/bin/Debug/netcoreapp3.1
 /src/Framework.Api/obj
 *.user
+/Framework.Application/obj

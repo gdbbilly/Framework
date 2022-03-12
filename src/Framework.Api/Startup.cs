@@ -1,14 +1,13 @@
+using Framework.Interfaces;
+using Framework.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.OpenApi.Models;
+using System.IO;
 
 namespace Framework.Api
 {
@@ -24,7 +23,26 @@ namespace Framework.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddMvc().AddControllersAsServices();
+
+            services.AddTransient<INumberService, NumberService>();
+
+            services.AddSwaggerGen(s =>
+            {
+                s.SwaggerDoc($"v1", new OpenApiInfo
+                {
+                    Version = $"v1",
+                    Title = $"Framework API",
+                    Description = $"Framework API",
+                    Contact = new OpenApiContact { Name = "Rodrigo Schaefer", Email = "rodrigolima.tec@hotmail.com" }
+                });
+
+                string caminhoAplicacao = PlatformServices.Default.Application.ApplicationBasePath;
+                string nomeAplicacao = PlatformServices.Default.Application.ApplicationName;
+                string caminhoXmlDoc = Path.Combine(caminhoAplicacao, $"{nomeAplicacao}.xml");
+
+                s.IncludeXmlComments(caminhoXmlDoc);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,8 +54,14 @@ namespace Framework.Api
             }
 
             app.UseRouting();
-
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(s =>
+            {
+                s.RoutePrefix = "";
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1.0");
+            });
 
             app.UseEndpoints(endpoints =>
             {

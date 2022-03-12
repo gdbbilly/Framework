@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Framework.Api.Controllers.NumbersController.Dividers(System.Int32)">
+            <summary>
+            Calcula quais os divisores de um número e quais dos divisores são primos.
+            </summary>
+            <param name="number">Número de entrada para calcular os divisores</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
