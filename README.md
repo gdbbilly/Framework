@@ -17,5 +17,6 @@ Divisores Primos: 1 3 5
 # Executar
 
 O projeto pode ser rodado de 2 formas diferentes
-● 1 - Via Api (Swagger), colocando para executar o projeto Framework.Api
-● 2 - Via Console, colocando para executar o projeto Framework.Console
+* 1 - Via Api (Swagger), colocando para executar o projeto Framework.Api
+
+* 2 - Via Console, colocando para executar o projeto Framework.Console
